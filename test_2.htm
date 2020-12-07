@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	background-image: url('https://i.pinimg.com/originals/77/55/12/775512d222eb9562371cf24ca66ff790.gif');
+	background-repeat: no-repeat;
+	background-attachment: fixed;  
+	background-size: cover;
+}
+div.transbox {
+	margin: auto;
+	background-color: #ffffff;
+	border: 3px solid pink;
+	opacity: 1;
+	text-align: center;
+	padding: 20px;
+	width: 400px;	
+}
+div.transbox p {
+	margin: 5%;
+	font-weight: bold;
+	color: #000000;
+}
+input[type=text], input[type=email], input[type=number],input[type=datetime-local]{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid pink;
+	border-radius: 4px;
+	text-align: center;
+}
+input[type=submit]{
+	text-align: center;
+	background-color: pink;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1 style="color:white;text-align:center;font-size:300%"><pre>BOOK A CALL</pre></h1>
+<p style="color:black;text-align:center;"> Book a call slot and our representative will call you within 1hr of selected time. </p> <hr>
+<div class="transbox">
+<form action="/action_page.php">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="email">Email:</label><br>	
+  <input type="email" id="email" name="email"><br>
+  <label for="phone">Phone:</label><br>
+  <input type="number" id="phone" name="phone"><br>
+  <label for="datetime">Time for Call:</label><br>
+  <input type="datetime-local" id="datetime" name="datetime"><br><br>
+  <input type="submit" id="sub" value="GET A CALL">
+</form> 
+</div>
+</body>
+<script type="text/javascript">
+
+var userDetails = {
+    inpName:document.getElementById("name"),
+    inpEmail:document.getElementById("email"),
+    inpPhone:document.getElementById("phone"),
+    inpTime:document.getElementById("datetime"),
+    inpSubmit:document.getElementById("sub")
+};
+
+	const inpName = document.getElementById("name");
+	const inpEmail = document.getElementById("email");
+	const inpPhone = document.getElementById("phone");
+	const inpTime = document.getElementById("datetime");
+	const inpSubmit = document.getElementById("sub");
+
+	userDetails.inpSubmit.onclick = function(){
+		const name = inpName.value;
+		const email = inpEmail.value;
+		const phone = inpPhone.value;
+		const time = inpTime.value;
+		
+
+		console.log(name);
+		console.log(email);
+		console.log(phone);
+		console.log(time);
+		
+		if(name && email && phone && time){
+			localStorage.setItem(name,email,phone,time);
+			localStorage.reload();
+		}
+	};
+
+//	console.log(userDetails.inpName);
+
+</script>
+</html>

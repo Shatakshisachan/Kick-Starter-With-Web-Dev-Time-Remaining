@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        background-image: url("https://webgradients.com/public/webgradients_png/007%20Sunny%20Morning.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      input[type="button"] {
+        background-color: white;
+        border: none;
+        color: #ffb366;
+        padding: 15px 32px;
+        justify-content: center;
+        text-align: center;
+        box-align: center;
+        text-decoration: none;
+        margin: auto;
+        cursor: pointer;
+      }
+      h1 {
+        color: white;
+        text-align: center;
+        font-size: 300%;
+      }
+      #delete:hover,
+      #update:hover,
+      #get:hover,
+      #post:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <b>
+        <pre>
+          REGISTRATION PAGE
+        </pre>
+      </b>
+    </h1>
+    <br />
+    <hr />
+    <hr />
+    <br />
+    <input
+      type="button"
+      onClick="location.href='registration_post.htm'"
+      value="CREATE"
+      id="post"
+    />
+    <br />
+    <hr />
+    <br />
+    <input
+      type="button"
+      onClick="location.href='registration_get.htm'"
+      value="RECEIVE DATA"
+      id="get"
+    />
+    <br />
+    <hr />
+    <br />
+    <input
+      type="button"
+      onClick="location.href='registration_update.htm'"
+      value="UPDATE"
+      id="update"
+    />
+    <br />
+    <hr />
+    <br />
+    <input
+      type="button"
+      onClick="location.href='registration_delete.htm'"
+      value="DELETE"
+      id="delete"
+    />
+    <br />
+  </body>
+</html>

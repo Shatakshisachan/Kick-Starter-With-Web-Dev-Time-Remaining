@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-image: url("https://webgradients.com/public/webgradients_png/007%20Sunny%20Morning.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      div.transbox {
+        margin: auto;
+        background-color: #ffffff;
+        border: 3px #ff944d;
+        opacity: 1;
+        text-align: center;
+        padding: 20px;
+        width: 400px;
+      }
+      div.transbox p {
+        margin: 5%;
+        font-weight: bold;
+        color: #000000;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ffb366;
+        border-radius: 4px;
+        text-align: center;
+      }
+      input[type="submit"] {
+        text-align: center;
+        background-color: #ffb366;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      #post:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: white; text-align: center; font-size: 300%;">
+      <pre>REGISTRATION PAGE</pre>
+    </h1>
+
+    <br />
+    <div class="transbox">
+      <form action="/action_page.php">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" required /><br />
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" required /><br />
+        <label for="phone">Phone:</label><br />
+        <input type="number" id="phone" required /><br />
+        <input type="submit" id="post" value="POST" />
+      </form>
+    </div>
+  </body>
+  <script>
+    var submit = document.getElementById("post");
+
+    const url = "https://crudcrud.com/api/ed2db265088243f4a20a26f5018ef933";
+
+    submit.addEventListener("click", () => {
+      var name_post = document.getElementById("name");
+      var email_post = document.getElementById("email");
+      var phone_post = document.getElementById("phone");
+
+      var post_data = {
+        name: name_post.value,
+        email: email_post.value,
+        phone: phone_post.value
+      };
+      console.log(post_data);
+      post(url + "/post", post_data);
+    });
+
+    function post(u, data) {
+      axios.post(u, data).then(() => {
+        console.log("Successfully Post");
+      });
+    }
+  </script>
+</html>

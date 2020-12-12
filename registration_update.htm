@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      body {
+        background-image: url("https://webgradients.com/public/webgradients_png/007%20Sunny%20Morning.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      div.transbox {
+        margin: auto;
+        background-color: #ffffff;
+        border: 3px #ff944d;
+        opacity: 1;
+        text-align: center;
+        padding: 20px;
+        width: 400px;
+      }
+      div.transbox p {
+        margin: 5%;
+        font-weight: bold;
+        color: #000000;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ffb366;
+        border-radius: 4px;
+        text-align: center;
+      }
+      input[type="submit"] {
+        text-align: center;
+        background-color: #ffb366;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      #sub:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: white; text-align: center; font-size: 300%;">
+      <pre>REGISTRATION PAGE</pre>
+    </h1>
+
+    <br />
+    <div class="transbox">
+      <form action="/action_page.php">
+        <label for="old">ID:</label><br />
+        <input type="email" id="old" required /><br />
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" required /><br />
+        <label for="email">New Email:</label><br />
+        <input type="email" id="email" required /><br />
+        <label for="phone">Phone:</label><br />
+        <input type="number" id="phone" required /><br />
+        <input type="submit" id="sub" value="UPDATE" />
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var submit = document.getElementById("sub");
+
+    const url = "https://crudcrud.com/api/ed2db265088243f4a20a26f5018ef933";
+
+    submit.addEventListener("click", (e) => {
+	e.preventDefault();
+      var id_update = document.getElementById("old");
+      var name_update = document.getElementById("name");
+      var email_update = document.getElementById("email");
+      var phone_update = document.getElementById("phone");
+
+      var update_data = {
+        name: name_update.value,
+        email: email_update.value,
+        phone: phone_update.value
+      };
+      console.log(update_data);
+      update_it(url + "/post/" + id_update.value, update_data);
+    });
+
+    function update_it(u, data) {
+      axios.put(u, data).then(() => {
+        console.log("Successfully UPDATED");
+      });
+    }
+  </script>
+</html>

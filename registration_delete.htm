@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-image: url("https://webgradients.com/public/webgradients_png/007%20Sunny%20Morning.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      div.transbox {
+        margin: auto;
+        background-color: #ffffff;
+        border: 3px #ff944d;
+        opacity: 1;
+        text-align: center;
+        padding: 20px;
+        width: 400px;
+      }
+      div.transbox p {
+        margin: 5%;
+        font-weight: bold;
+        color: #000000;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ffb366;
+        border-radius: 4px;
+        text-align: center;
+      }
+      input[type="submit"] {
+        text-align: center;
+        background-color: #ffb366;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      #delete:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: white; text-align: center; font-size: 300%;">
+      <pre>REGISTRATION PAGE</pre>
+    </h1>
+
+    <br />
+    <div class="transbox">
+      <form action="/action_page.php">
+        <label for="id_delete">ID:</label><br />
+        <input type="text" id="id_delete" required /><br />
+        <br />
+        <input type="submit" id="delete" value="DELETE"  />
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const url = "https://crudcrud.com/api/ed2db265088243f4a20a26f5018ef933";
+    var del = document.getElementById("delete");
+    del.addEventListener("click", (e) => {
+	e.preventDefault();
+      var id_delete = document.getElementById("id_delete");
+      delete_data(url + "/post/" + id_delete.value);
+    });
+
+    function delete_data(u) {
+      axios.delete(u).then(() => {
+        console.log("Successfully Delete");
+      });
+    }
+  </script>
+</html>
